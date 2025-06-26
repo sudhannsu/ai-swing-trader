@@ -1,0 +1,4 @@
+enable_alerts: true
+telegram_token: 'your-telegram-bot-token'
+telegram_chat_id: 'your-chat-id'
+alert_threshold: 0.75

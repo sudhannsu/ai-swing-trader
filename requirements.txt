@@ -1,0 +1,8 @@
+streamlit
+yfinance
+scikit-learn
+ta
+pandas
+matplotlib
+requests
+pyyaml
