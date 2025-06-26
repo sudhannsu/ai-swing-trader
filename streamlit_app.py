@@ -7,11 +7,24 @@ from utils.sentiment import get_sentiment_score
 from model.model_loader import load_model
 from alerts.telegram_alerts import send_telegram
 import yaml
+from utils.nifty_symbols import fetch_top_nifty_symbols
+
 
 st.set_page_config(page_title="AI Swing Trader", layout="wide")
 st.title("🧠 AI-Powered Swing Trade Scanner")
 
-uploaded_file = st.file_uploader("📤 Upload stock list CSV (must contain column 'Symbol')", type="csv")
+#uploaded_file = st.file_uploader("📤 Upload stock list CSV (must contain column 'Symbol')", type="csv")
+auto_scan = st.checkbox("🔄 Auto-scan Nifty stocks (no CSV)", value=True)
+
+symbols = []
+
+if auto_scan:
+    symbols = fetch_top_nifty_symbols(limit=50)  # adjust limit if needed
+    st.success(f"📈 Scanning top {len(symbols)} NSE stocks")
+else:
+    uploaded_file = st.file_uploader("📤 Upload your stock list CSV", type="csv")
+    if uploaded_file:
+        symbols = pd.read_csv(uploaded_file)["Symbol"].tolist()
 
 if uploaded_file:
     symbols = pd.read_csv(uploaded_file)['Symbol'].tolist()
