@@ -2,7 +2,9 @@ name: Train Placeholder Model
 
 on:
   workflow_dispatch:  # manual trigger from GitHub UI
-
+env:
+  GH_PAT: ${{ secrets.GH_PAT }}
+  REPO_URL: https://github.com/sudhannsu/ai-swing-trader.git
 jobs:
   train:
     runs-on: ubuntu-latest
