@@ -10,7 +10,7 @@ import yaml
 
 def scan_stocks_and_alert():
     # Load watchlist
-    symbols = pd.read_csv("watchlist.csv")["Symbol"].tolist()
+    symbols = pd.read_csv("watchlist.csv")["Symbol"]
 
     # Load model and config
     model, scaler = load_model()
