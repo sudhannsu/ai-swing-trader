@@ -25,10 +25,6 @@ else:
     uploaded_file = st.file_uploader("📤 Upload your stock list CSV", type="csv")
     if uploaded_file:
         symbols = pd.read_csv(uploaded_file)["Symbol"].tolist()
-
-if uploaded_file:
-    symbols = pd.read_csv(uploaded_file)['Symbol'].tolist()
-
     # Load model and config
     model, scaler = load_model()
     with open('config.yaml') as f:
