@@ -39,8 +39,8 @@ import subprocess
 import os
 
 def auto_commit_models():
-    subprocess.run(['git', 'config', '--global', 'user.email', 'bot@yourdomain.com'])
-    subprocess.run(['git', 'config', '--global', 'user.name', 'SwingBot'])
+    subprocess.run(['git', 'config', '--global', 'user.email', 'sudhannsu@hotmail.com'])
+    subprocess.run(['git', 'config', '--global', 'user.name', 'sudhannsu'])
 
     # Stage model files
     subprocess.run(['git', 'add', 'model/svm_model.pkl', 'model/scaler.pkl'])
