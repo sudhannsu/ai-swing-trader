@@ -8,6 +8,7 @@ def fetch_top_nifty_symbols(limit=50):
     """
     nse = Nse()
     codes = nse.get_stock_codes()  # dict: {SYMBOL: Company Name}
+    print("Fetched codes:", codes)
     if isinstance(codes, dict):
     stock_list = list(codes.keys())[1:]
     else:
