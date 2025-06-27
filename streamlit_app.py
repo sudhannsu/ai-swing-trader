@@ -13,7 +13,7 @@ from utils.nifty_symbols import fetch_top_nifty_symbols
 st.set_page_config(page_title="AI Swing Trader", layout="wide")
 st.title("🧠 AI-Powered Swing Trade Scanner")
 
-# uploaded_file = st.file_uploader("📤 Upload stock list CSV (must contain column 'Symbol')", type="csv")
+uploaded_file = st.file_uploader("📤 Upload stock list CSV (must contain column 'Symbol')", type="csv")
 auto_scan = st.checkbox("🔄 Auto-scan Nifty stocks (no CSV)", value=True)
 
 symbols = []
