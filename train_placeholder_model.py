@@ -35,3 +35,25 @@ joblib.dump(svm, "model/svm_model.pkl")
 joblib.dump(scaler, "model/scaler.pkl")
 
 print("✅ Placeholder model and scaler saved to /model")
+import subprocess
+import os
+
+def auto_commit_models():
+    subprocess.run(['git', 'config', '--global', 'user.email', 'bot@yourdomain.com'])
+    subprocess.run(['git', 'config', '--global', 'user.name', 'SwingBot'])
+
+    # Stage model files
+    subprocess.run(['git', 'add', 'model/svm_model.pkl', 'model/scaler.pkl'])
+
+    # Commit and push using token auth
+    commit_message = "🤖 Auto-commit: Updated model and scaler"
+    subprocess.run(['git', 'commit', '-m', commit_message])
+
+    repo_url = os.getenv("REPO_URL")
+    pat = os.getenv("GH_PAT")
+
+    if pat and repo_url:
+        authenticated_url = repo_url.replace("https://", f"https://{pat}@")
+        subprocess.run(['git', 'push', authenticated_url, 'HEAD:main'], check=True)
+
+auto_commit_models()
