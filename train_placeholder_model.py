@@ -1,5 +1,3 @@
- train_placeholder_model.py
-Place this in your root project folder:
 # train_placeholder_model.py
 import pandas as pd
 import numpy as np
