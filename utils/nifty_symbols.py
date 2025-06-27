@@ -10,7 +10,7 @@ def fetch_top_nifty_symbols(limit=50):
     codes = nse.get_stock_codes()  # dict: {SYMBOL: Company Name}
     print("Fetched codes:", codes)
     if isinstance(codes, dict):
-    stock_list = list(codes.keys())[1:]
+    stock_list = codes[1:]  # skip header or first item if needed
     else:
     raise ValueError("Expected codes to be a dict, but got:", type(codes))
     # Remove the first key which is 'SYMBOL'
