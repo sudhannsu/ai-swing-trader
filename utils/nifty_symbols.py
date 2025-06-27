@@ -8,9 +8,12 @@ def fetch_top_nifty_symbols(limit=50):
     """
     nse = Nse()
     codes = nse.get_stock_codes()  # dict: {SYMBOL: Company Name}
-    
-    # Remove the first key which is 'SYMBOL'
+    if isinstance(codes, dict):
     stock_list = list(codes.keys())[1:]
+    else:
+    raise ValueError("Expected codes to be a dict, but got:", type(codes))
+    # Remove the first key which is 'SYMBOL'
+   # stock_list = list(codes.keys())[1:]
 
     # Append '.NS' to match yfinance format
     stock_list = [symbol + '.NS' for symbol in stock_list[:limit]]
