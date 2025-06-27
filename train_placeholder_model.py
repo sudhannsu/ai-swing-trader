@@ -37,17 +37,3 @@ joblib.dump(svm, "model/svm_model.pkl")
 joblib.dump(scaler, "model/scaler.pkl")
 
 print("✅ Placeholder model and scaler saved to /model")
-
-
-
-✅ To Run It:
-In your terminal:
-python train_placeholder_model.py
-
-
-This will generate:
-- model/svm_model.pkl
-- model/scaler.pkl
-Your Streamlit app will now run successfully using this dummy model!
-
-Let me know if you’d like to later upgrade this with real trade outcome data or link it to live stock performance for online learning. Ready when you are, captain 📈🧠
