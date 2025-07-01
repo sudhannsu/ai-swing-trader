@@ -37,6 +37,9 @@ else:
             df = get_price_data(symbol)
             sentiment = get_sentiment_score(symbol)
             signal = generate_trade_signals(df, sentiment, config)
+            print(df)
+            print(sentiment)
+            print(signal)
 
             X = pd.DataFrame([signal['features']])
             X_scaled = scaler.transform(X)
