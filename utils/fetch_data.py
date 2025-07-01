@@ -5,5 +5,5 @@ import pandas as pd
 def get_price_data(symbol, period="60d", interval="1d"):
     df = yf.download(symbol, period=period, interval=interval)
     df = df.dropna()
-    print("Price Data:" df)
+    print("Price Data:", df)
     return df
